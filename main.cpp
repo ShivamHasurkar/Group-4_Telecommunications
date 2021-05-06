@@ -96,12 +96,12 @@ int main(){
 		
 		cout << "\nEnter your Choice: ";
 		cin >> choice;
-		string res, CountryName, AreaName, CustomerName, CustomerAddress;
-		int count, CountryCode, AreaCode, PhoneNumber, CustomerPincode;
-        Customer cust;
+		string res, newCountryName, CountryName, newAreaName, AreaName, CustomerName, CustomerAddress;
+		int count, newCountryCode, CountryCode, newAreaCode, AreaCode, newPhoneNumber, PhoneNumber, CustomerPincode;
+		
 		switch (choice) {
 		case 11: 
-		    CountryCode = input_countrycode("Enter new Country Code");
+		    CountryCode = input_countrycode("Enter new Country Code : ");
 		    cout<<"Enter new Country Name : ";
 		    cin>>CountryName;
 			res=(c->setCountry(CountryCode,CountryName))?"Successfully Added!":"Something went wrong. Try again!";
@@ -109,7 +109,7 @@ int main(){
 			break;
 		case 12: 
 		    CountryCode = input_countrycode("Enter Country Code in which you want to add new Area : ");
-		    AreaCode = input_areacode("Enter Area Code in which you want to add new Area : ");
+		    AreaCode = input_areacode("Enter new Area Code : ");
 			cout<<"Enter new Area Name : ";
 		    cin>>AreaName;
 			res=(a->addCode(CountryCode,AreaCode,AreaName))?"Successfully Added!":"Something went wrong. Try again!";
@@ -151,12 +151,11 @@ int main(){
 		    CountryCode = input_countrycode("Enter Country Code in which you want to search Customer Details : ");
 		    AreaCode = input_areacode("Enter Area Code in which you want to search Customer Details : ");
 			PhoneNumber = input_phonenumber("Enter PhoneNumber in which you want to search Customer Details : ");
-			Customer *cust = cd->searchCustomerDetails(Co);
-			if(cust == NULL){
-			    cout<<"Not Exists";
+			try{
+			    cd->searchCustomerDetails(CountryCode, AreaCode, PhoneNumber)->display();
 			}
-			else{
-			    cust->display();
+			catch(exception e){
+			    cout<<"Not Exists";
 			}
 			break;
 		case 31: 
@@ -175,31 +174,70 @@ int main(){
 		case 35:
 		    CountryCode = input_countrycode("Enter Country Code in which you want to get count of all PhoneNumbers : ");
 		    AreaCode = input_areacode("Enter Area Code in which you want to get count of all PhoneNumbers : ");
-		    cout<<cd->countAllPhoneNumbers()<<endl;
+		    cout<<cd->countAllPhoneNumbers(CountryCode, AreaCode)<<endl;
 		    break;
 		case 41: 
-			
+		    CountryCode = input_countrycode("Enter Country Code to update : ");
+		    newCountryCode = input_countrycode("Enter new Country Code : ");
+		    cout<<"Enter new Country Name : ";
+		    cin>>newCountryName;
+		    res=(c->updateCountry(CountryCode, newCountryCode, newCountryName))?"Successfully Updated!":"Something went wrong. Try again!";
+			cout<<res<<endl;
 			break;
 		case 42: 
-			
+			CountryCode = input_countrycode("Enter Country Code in which you want to update Area Code : ");
+		    AreaCode = input_areacode("Enter Area Code to change : ");
+		  //  newAreaCode = input_areacode("Enter new Area Code : ");
+		  //  cout<<"Enter new Area Name : ";
+		  //  cin>>newAreaName;
+		    res=(a->update(CountryCode, AreaCode))?"Successfully Updated!":"Something went wrong. Try again!";
+			cout<<res<<endl;
 			break;
 		case 43: 
-			
+			CountryCode = input_countrycode("Enter Country Code in which you want to update PhoneNumber : ");
+		    AreaCode = input_areacode("Enter Area Code in which you want to update PhoneNumber : ");
+		    PhoneNumber = input_phonenumber("Enter PhoneNumber to update : ");
+		    newPhoneNumber = input_phonenumber("Enter new PhoneNumber : ");
+		    res=(cd->updatePhoneNumber(CountryCode, AreaCode, PhoneNumber, newPhoneNumber))?"Successfully Updated!":"Something went wrong. Try again!";
+			cout<<res<<endl;
 			break;
 		case 44: 
-			
+			CountryCode = input_countrycode("Enter Country Code in which you want to update Customer Details : ");
+		    AreaCode = input_areacode("Enter Area Code in which you want to update Customer Details : ");
+		    PhoneNumber = input_phonenumber("Enter PhoneNumber in which you want to update Customer Details : ");
+		    cout<<"Enter new Customer Name : ";
+		    cin>>CustomerName;
+			cout<<"Enter new Customer Address : ";
+		    cin>>CustomerAddress;
+			cout<<"Enter new Customer Pincode : ";
+		    cin>>CustomerPincode;
+		    res=(cd->updateCustomerDetails(CountryCode, AreaCode, PhoneNumber, CustomerName, CustomerAddress, CustomerPincode))?"Successfully Updated!":"Something went wrong. Try again!";
+			cout<<res<<endl;
 			break;
 		case 51: 
-			
+			CountryCode = input_countrycode("Enter Country Code you want to delete : ");
+			res = (c->deleteCountry(CountryCode))?"Successfully Deleted": "Something went wrong. Try again!";
+			cout<<res<<endl;
 			break;
 		case 52: 
-			
+			CountryCode = input_countrycode("Enter Country Code in which you want to delete Area : ");
+			AreaCode = input_areacode("Enter Area Code you want to delete : ");
+			res = (a->Delete(CountryCode, AreaCode))?"Successfully Deleted": "Something went wrong. Try again!";
+			cout<<res<<endl;
 			break;
 		case 53: 
-			
+			CountryCode = input_countrycode("Enter Country Code in which you want to PhoneNumber : ");
+			AreaCode = input_areacode("Enter Area Code in which you want to delete PhoneNumber : ");
+			PhoneNumber = input_phonenumber("Enter PhoneNumber you want to delete : ");
+			res = (cd->deletePhoneNumber(CountryCode, AreaCode, PhoneNumber))?"Successfully Deleted": "Something went wrong. Try again!";
+			cout<<res<<endl;
 			break;
 		case 54: 
-			
+			CountryCode = input_countrycode("Enter Country Code in which you want to Customer Details : ");
+			AreaCode = input_areacode("Enter Area Code in which you want to delete Customer Details : ");
+			PhoneNumber = input_phonenumber("Enter PhoneNumber in which you want to delete Customer Details : ");
+			res = (cd->deleteCustomerDetails(CountryCode, AreaCode, PhoneNumber))?"Successfully Deleted": "Something went wrong. Try again!";
+			cout<<res<<endl;
 			break;
 		default:
 			cout << "\nInvalid Choice";
