@@ -64,9 +64,9 @@ bool Country::updateCountry(int oldcode, int newcode, string name)
         (this->country).insert({newcode, name});
 							        		
     }
-    catch (exception exception)
+    catch (exception e)
     {
-        return false;
+        cout<<"Exception Caught: "<< e.what()<<endl;
     }
     contactdetails->updateCountrycode(oldcode,newcode);
     return true;
@@ -85,9 +85,9 @@ bool Country ::deleteCountry(int code)
             return true;
           }
     }
-    catch (exception exception)
+    catch (exception e)
     {
-        return false;
+        cout<<"Exception Caught: "<< e.what()<<endl;
     }
     return false;
 }
