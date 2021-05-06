@@ -15,6 +15,7 @@ int main(){
     area_details *a=a->getInstance();
     ContactDetails *cd=cd->getInstance();
     
+
     char ch = 'y';
 	int choice = 0;
 	while (ch == 'y' || ch == 'Y') {
@@ -52,11 +53,11 @@ int main(){
 		cout << "\n\t52. Delete Area in Country";
 		cout << "\n\t53. Delete PhoneNumber in Area";
 		cout << "\n\t54. Delete Customer Details with PhoneNumber";
-		
+		try{
 		cout << "\nEnter your Choice: ";
 		cin >> choice;
 		string res;
-
+		try{
 		switch (choice) {
 		case 11: 
 			res=(c->setCountry(52,"India"))?"Successfully Added!":"Something went wrong. Try again!";
@@ -127,5 +128,9 @@ int main(){
 		}
 		cout << "\nDo you want to perfom any other operation (Y/N): ";
 		cin >> ch;
+		}
+		catch(exception ex){
+			cout <<"Something went wrong";
+		
 	}
 }
