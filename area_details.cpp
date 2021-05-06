@@ -37,9 +37,12 @@ area_details* area_details::getInstance() {
 	bool area_details::addCode(int CountryCode, int areaCode, string newAreaName ){
 
 		try{
-		//if(area_code[CountryCode]
-			area_code[CountryCode].emplace(areaCode, newAreaName);
-			return true;
+			for(auto country : area_code){
+				if (Country==country.first){
+					area_code[CountryCode].emplace(areaCode, newAreaName);
+					return true
+			}
+			}
 			}
 		catch(exception &e){
 			cout<<"Exception Caught: "<< e.what()<<endl;
@@ -122,25 +125,29 @@ area_details* area_details::getInstance() {
 	//new data elements which will be inserted
 	bool area_details::update(int CountryCode,int areaCode){
 		try{
-			cout<<"Updating "<<CountryCode<<" "<<areaCode<<endl;
+			for(auto country : area_code){
+				if (CountryCode==country.first){
+					cout<<"Updating "<<CountryCode<<" "<<areaCode<<endl;
 					int newAreaCode;
 					string  newAreaName;
-					cout<<"Enter new AreaCode";
+					cout<<"Enter newAreaCode"<<endl;
 					cin>>newAreaCode;
-					cout<<"Enter new Area Name";
+
+					cout<<"Enter newAreaName"<<endl;
 					cin>>newAreaName;
+
 					for (auto country : area_code) {
 						if (country.first==CountryCode){
-							        for (auto city : country.second){
-							        	if (city.first==areaCode){
-							        		area_code.erase(country.first);
+									for (auto city : country.second){
+										if (city.first==areaCode){
+											area_code.erase(country.first);
 
-							        		area_code[country.first].emplace(newAreaCode,newAreaName);
-							        		cout << country.first << ":" << city.first << " -> " << city.second << endl;
+											area_code[country.first].emplace(newAreaCode,newAreaName);
+											cout << country.first << ":" << city.first << " -> " << city.second << endl;
+											break;
+										}
 
-							        	}
-
-							        }
+									}
 						}
 					}
 					return true;
