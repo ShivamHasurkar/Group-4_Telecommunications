@@ -16,13 +16,21 @@ namespace country
         set<Area *> areas;
 
     public:
+        //default constructor
         Country();
+        //parameterized constructor
         Country(int, string, set<Area *>);
+        //setter for isdcode
         void setCode(int code);
+        //getter for isdcode
         int getCode();
+        //setter for name
         void setName(string name);
+        //getter for name
         string getName();
+        //setting list of area
         void setArea(Area *area);
+        //getting list of area
         set<Area *> getAreas();
     };
 } // namespace country
