@@ -10,11 +10,48 @@ ContactDetails* ContactDetails::getInstance() {
 	return instance;
 }
 
+void ContactDetails::addCountry(int countrycode){
+	Map1 :: iterator it_out;
+	it_out = contacts.find(countrycode);
+	if(it_out==contacts.end()){
+		Map2 map2;
+		contacts.insert(std::pair<int,Map2>(countrycode,map2));
+	}
+}
+
+void ContactDetails::deleteCountry(int countrycode){
+	Map1 :: iterator it_out;
+	it_out = contacts.find(countrycode);
+	if(it_out!=contacts.end()){
+		contacts.erase(countrycode);
+	}
+}
+
+
+void ContactDetails::updateCountrycode(int oldcountrycode,int newcountrycode){
+	Map1 :: iterator it_out;
+	it_out = contacts.find(oldcountrycode);
+	if(it_out!=contacts.end()){
+		Map1 :: iterator it_mid;
+		it_mid = contacts.find(newcountrycode);
+		if(it_mid==contacts.end()){
+			Map2 m2=(*it_out).second;
+			contacts.insert(std::pair<int,Map2>(newcountrycode,m2));
+			contacts.erase(oldcountrycode);
+		}
+	}
+}
+
 void ContactDetails::addArea(int countrycode,int areacode){
 	Map1 :: iterator it_out;
 	it_out = contacts.find(countrycode);
 	if(it_out!=contacts.end()){
-		(*it_out).second.insert(std::pair<areacode,);
+		Map2 :: iterator it_mid;
+		it_mid = (*it_out).second.find(areacode);
+		if(it_mid==(*it_out).second.end()){
+			Map3 m3;
+			(*it_out).second.insert(std::pair<int,Map3>(areacode,m3));
+		}
 	}
 }
 
@@ -22,7 +59,29 @@ void ContactDetails::deleteArea(int countrycode,int areacode){
 	Map1 :: iterator it_out;
 	it_out = contacts.find(countrycode);
 	if(it_out!=contacts.end()){
-		(*it_out).second.erase(areacode);
+		Map2 :: iterator it_mid;
+		it_mid = (*it_out).second.find(areacode);
+		if(it_mid!=(*it_out).second.end()){
+			(*it_out).second.erase(areacode);
+		}
+	}
+}
+
+void ContactDetails::updateAreacode(int countrycode,int oldareacode,int newareacode){
+	Map1 :: iterator it_out;
+	it_out = contacts.find(countrycode);
+	if(it_out!=contacts.end()){
+		Map2 :: iterator it_mid;
+		it_mid = (*it_out).second.find(oldareacode);
+		if(it_mid!=(*it_out).second.end()){
+			Map2 :: iterator it_midd;
+			it_midd = (*it_out).second.find(newareacode);
+			if(it_midd==(*it_out).second.end()){
+				Map3 m3=(*it_mid).second;
+				(*it_out).second.insert(std::pair<int,Map3>(newareacode,m3));
+				(*it_out).second.erase(oldareacode);
+			}
+		}
 	}
 }
 
@@ -203,5 +262,14 @@ bool ContactDetails::deleteCustomerDetails(int countrycode, int areacode, int ph
 	}
 	return false;
 }
+/*
+ContactDetails *ContactDetails::instance = 0;
 
-
+int main(){
+	ContactDetails *c=c->getInstance();
+	c->addCountry(20);
+	c->addArea(20,30);
+	c->addPhoneNumber(20,30,40);
+	std::cout<<c->countTotalPhoneNumbers()<<std::endl;
+}
+*/

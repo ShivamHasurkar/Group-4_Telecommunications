@@ -53,9 +53,19 @@ public:
 	bool deleteCustomerDetails(int countrycode, int areacode, int phoneNumber);
 	
 	
-   	void addArea(int countrycode,int areacode);
    	
-   	void deleteArea(int countrycode,int areacode);
+	void addArea(int countrycode,int areacode);
+	void deleteArea(int countrycode,int areacode);
+
+	void updateAreacode(int countrycode,int oldareacode,int newareacode);
+	
+   	
+   	void addCountry(int countrycode);
+
+	void deleteCountry(int countrycode);
+
+
+	void updateCountrycode(int oldcountrycode,int newcountrycode);
 
 };
 
