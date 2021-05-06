@@ -4,14 +4,19 @@
 using namespace countryoperations;
 using namespace std;
 
+//default constructor
 Countryoperations::Countryoperations()
 {
     this->countries = {};
 }
+
+//parameterized constructor
 Countryoperations::Countryoperations(set<Country *> countries)
 {
     this->countries = countries;
 }
+
+//adding country to the list
 bool Countryoperations::addCountry(int countrycode, string countryname)
 {
     try
@@ -27,14 +32,19 @@ bool Countryoperations::addCountry(int countrycode, string countryname)
     }
 }
 
+//displaying all the countries
 set<Country *> Countryoperations::displayCountries()
 {
     return this->countries;
 }
+
+//count of countries
 int Countryoperations::countryCount()
 {
     return this->countries.size();
 }
+
+//updating country 
 bool Countryoperations::updateCountry(int countrycode, int newcode, string countryname)
 {
     try
@@ -54,6 +64,7 @@ bool Countryoperations::updateCountry(int countrycode, int newcode, string count
     }
 }
 
+//deleting country from list
 bool Countryoperations::deleteCountry(int countrycode)
 {
     try
