@@ -56,11 +56,17 @@ int main(){
 		try{
 		cout << "\nEnter your Choice: ";
 		cin >> choice;
-		string res;
+		
+		string res, CountryName, AreaName, CustomerName, CustomerAddress, CustomerPincode;
+		int CountryCode, AreaCode, PhoneNumber;
 		try{
 		switch (choice) {
 		case 11: 
-			res=(c->setCountry(52,"India"))?"Successfully Added!":"Something went wrong. Try again!";
+		    cout<<"Enter new County Code : ";
+		    cin>>CountryCode;
+		    cout<<"Enter new Country Name : ";
+		    cin>>CountryName;
+			res=(c->setCountry(CountryCode,CountryName))?"Successfully Added!":"Something went wrong. Try again!";
 			cout<<res<<endl;
 			break;
 		case 12: 
