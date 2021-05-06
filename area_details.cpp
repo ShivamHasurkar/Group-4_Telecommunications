@@ -37,6 +37,7 @@ area_details* area_details::getInstance() {
 	bool area_details::addCode(int CountryCode, int areaCode, string newAreaName ){
 
 		try{
+		//if(area_code[CountryCode]
 			area_code[CountryCode].emplace(areaCode, newAreaName);
 			return true;
 			}
@@ -68,7 +69,7 @@ area_details* area_details::getInstance() {
 
 		catch(exception &e){
 			cout<<"Exception Caught: "<< e.what()<<endl;
-			return false;
+			return {};
 			}
 	}
 

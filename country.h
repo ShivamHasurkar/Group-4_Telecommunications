@@ -1,13 +1,11 @@
 #ifndef COUNTRY_H
 #define COUNTRY_H
-//#include "ContactDetails.cpp"
-#include AREA_H
+#include "ContactDetails.h"
 #include <map>
 #include <string>
 using namespace std;
 
-namespace country
-{
+
     class Country
     {
     private:
@@ -19,6 +17,8 @@ namespace country
 
         //default construcor
         Country();
+        static Country *instance;
+
 
         //parameterized constructor
         Country(map<int, string>);
@@ -26,7 +26,7 @@ namespace country
         Country *getInstance();
 
         //setting country
-        void setCountry(int code, string name);
+        bool setCountry(int code, string name);
 
         //getting country with code
         string getCountryName(int code);
@@ -44,11 +44,7 @@ namespace country
         //total countries
         int getCountryCount();
 
-        //setting contact details
-        void setContactDetails(ContactDetails);
-
-        //getting contactdetails
-        ContactDetails getContactDetails();
+        
     };
-} // namespace country
+// namespace country
 #endif

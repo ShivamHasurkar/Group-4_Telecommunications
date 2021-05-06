@@ -5,7 +5,6 @@ using namespace std;
 #include "ContactDetails.h"
 #include "Customer.h"
 #include "area_details.h"
-#include "countryoperations.h"
 
 ContactDetails *ContactDetails::instance = 0;
 Country *Country::instance = 0;
@@ -56,19 +55,24 @@ int main(){
 		
 		cout << "\nEnter your Choice: ";
 		cin >> choice;
+		string res;
 
 		switch (choice) {
 		case 11: 
-			cout<<  (c->addCountry(52))?"Successfully Added!":"Something went wrong. Try again!";
+			res=(c->setCountry(52,"India"))?"Successfully Added!":"Something went wrong. Try again!";
+			cout<<res<<endl;
 			break;
 		case 12: 
-			cout<< (c->addCode(52,30))?"Successfully Added!":"Something went wrong. Try again!";
+			res=(a->addCode(52,30,"KoP"))?"Successfully Added!":"Something went wrong. Try again!";
+			cout<<res<<endl;
 			break;
 		case 13: 
-			cout<< (c->addPhoneNumber(52,30,10))?"Successfully Added!":"Something went wrong. Try again!";
+			res=(cd->addPhoneNumber(52,30,10))?"Successfully Added!":"Something went wrong. Try again!";
+			cout<<res<<endl;
 			break;
 		case 14: 
-			cout<< (c->addCustomerDetails(52,30,10,"Sahil","Sahil","Sahil"))?"Successfully Added!":"Something went wrong. Try again!";
+			res= (cd->addCustomerDetails(52,30,10,"Sahil","Sahil","Sahil"))?"Successfully Added!":"Something went wrong. Try again!";
+			cout<<res<<endl;
 			break;
 		case 21: 
 			
@@ -89,7 +93,7 @@ int main(){
 			
 			break;
 		case 33: 
-			cout<<c->countTotalPhoneNumbers()<<endl;
+			//cout<<c->countTotalPhoneNumbers()<<endl;
 			break;
 		case 34: 
 			

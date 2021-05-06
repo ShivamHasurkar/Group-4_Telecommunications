@@ -3,7 +3,6 @@
 #include <string>
 #include <iostream>
 //#include "ContactDetails..cpp"
-using namespace country;
 using namespace std;
 
 //Default constructor
@@ -25,7 +24,7 @@ Country::Country(map<int, string> country)
 }
 
 //setting country
-void Country::setCountry(int code, string name)
+bool Country::setCountry(int code, string name)
 {
     this->country.insert({code, name});
     contactdetails->addCountry(code);
@@ -60,8 +59,10 @@ bool Country::updateCountry(int oldcode, int newcode, string name)
     {
 
         auto itr = this->country.find(oldcode);
-        itr->first = newcode;
-        itr->second = name;
+        
+        (this->country).erase(itr->first);
+        (this->country).insert({newcode, name});
+							        		
     }
     catch (exception exception)
     {
@@ -89,15 +90,4 @@ bool Country ::deleteCountry(int code)
         return false;
     }
     return false;
-}
-
-//setting contactdetails
-void Country ::setContactDetails(ContactDetails contactdetails)
-{
-    this->contactdetails = contactdetails;
-}
-//getting contactdetails
-ContactDetails Country ::getContactDetails()
-{
-    return this->contactdetails;
 }
