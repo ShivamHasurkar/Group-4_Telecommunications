@@ -13,16 +13,16 @@ Country::Country()
 }
 
 //parameterized constructor
-Country::Country(map<int, string> country, ContactDetails contactdetails)
+Country::Country(map<int, string> country)
 {
     this->country = country;
-    this->contactdetails = contactdetails;
 }
 
 //setting country
 void Country::setCountry(int code, string name)
 {
     this->country.insert({code, name});
+    contactdetails->addCountry(code);
 }
 
 //getter for countryname
@@ -61,6 +61,7 @@ bool Country::updateCountry(int oldcode, int newcode, string name)
     {
         return false;
     }
+    contactdetails->updateCountrycode(oldcode,newcode);
     return true;
 }
 
@@ -72,7 +73,10 @@ bool Country ::deleteCountry(int code)
     {
         int result = this->country.erase(code);
         if (result)
+        {
+        	contactdetails->deleteCountry(code);
             return true;
+          }
     }
     catch (exception exception)
     {

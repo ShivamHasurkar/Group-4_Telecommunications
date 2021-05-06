@@ -22,6 +22,8 @@ public:
 	
 	std::string getPincode();
 	void setPincode(std::string pincode);
+	
+	void display();
 };
 
 #endif

@@ -12,14 +12,14 @@ namespace country
     {
     private:
         map<int, string> country;
-        ContactDetails contactdetails;
+        ContactDetails *contactdetails=contactdetails->getInstance();
 
     public:
         //default construcor
         Country();
 
         //parameterized constructor
-        Country(map<int, string>, ContactDetails);
+        Country(map<int, string>);
 
         //setting country
         void setCountry(int code, string name);

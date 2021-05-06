@@ -35,3 +35,9 @@ std::string Customer::getPincode(){
 void Customer::setPincode(std::string pincode){
 	this->pincode=pincode;
 }
+
+void Customer::display(){
+	std::cout<<"Name: "<<this->name<<std::endl;
+	std::cout<<"Address: "<<this->address<<std::endl;
+	std::cout<<"Pincode: "<<this->pincode<<std::endl;
+}
