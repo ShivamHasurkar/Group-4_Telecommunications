@@ -15,6 +15,7 @@ public:
    	Map2 areas;
    	Map3 countries;
    	
+   	
    	static ContactDetails *instance;
    	
    	static ContactDetails *getInstance();
@@ -50,6 +51,11 @@ public:
 	
 	//delete case 4
 	bool deleteCustomerDetails(int countrycode, int areacode, int phoneNumber);
+	
+	
+   	void addArea(int countrycode,int areacode);
+   	
+   	void deleteArea(int countrycode,int areacode);
 
 };
 

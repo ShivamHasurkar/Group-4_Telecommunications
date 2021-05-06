@@ -10,6 +10,21 @@ ContactDetails* ContactDetails::getInstance() {
 	return instance;
 }
 
+void ContactDetails::addArea(int countrycode,int areacode){
+	Map1 :: iterator it_out;
+	it_out = contacts.find(countrycode);
+	if(it_out!=contacts.end()){
+		(*it_out).second.insert(std::pair<areacode,);
+	}
+}
+
+void ContactDetails::deleteArea(int countrycode,int areacode){
+	Map1 :: iterator it_out;
+	it_out = contacts.find(countrycode);
+	if(it_out!=contacts.end()){
+		(*it_out).second.erase(areacode);
+	}
+}
 
 bool ContactDetails::addPhoneNumber(int countrycode, int areacode, int phoneNumber){
 	Map1 :: iterator it_out;
