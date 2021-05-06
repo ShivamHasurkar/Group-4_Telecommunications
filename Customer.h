@@ -12,8 +12,6 @@ private:
 	
 public:
 	Customer();
-	Customer(std::string name);
-	Customer(std::string name,std::string address);
 	Customer(std::string name,std::string address,std::string pincode);
 
 	std::string getName();
