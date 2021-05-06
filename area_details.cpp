@@ -7,6 +7,7 @@
 #include"area_details.h"
 
 	void area_details::print_all(){
+		//Looping through Map to print all data elements
 		for (auto country : area_code) {
 				        for (auto city : country.second){
 				            cout << country.first << ":" << city.first << " -> " << city.second << endl;
@@ -15,6 +16,7 @@
 
 	}
 	void area_details::addCode(int CountryCode, int areaCode, string newAreaName ){
+		//Inserting Data element into directory
 		area_code[CountryCode].emplace(areaCode, newAreaName);
 
 	}
@@ -23,7 +25,7 @@
 		list<int> l;
 		 for (auto country : area_code) {
 		        for (auto city : country.second){
-		            //cout << country.first << ":" << city.first << " -> " << city.second << endl;
+		            //Creating a list and pushing into list l
 		            l.push_back(city.first);
 		        }
 		 }
@@ -33,7 +35,7 @@
 		int count =0;
 		for (auto country : area_code) {
 				        for (auto city : country.second){
-				            //cout << country.first << ":" << city.first << " -> " << city.second << endl;
+				            //Counting every element present in the telephonedirectory 
 				            count++;
 				        }
 				 }
@@ -44,7 +46,7 @@
 		for (auto country : area_code) {
 			if (CountryCode == country.first){
 				for (auto city : country.second){
-				//cout << country.first << ":" << city.first << " -> " << city.second << endl;
+				//Counting only elements with given country name
 				count++;
 			}
 			}
@@ -55,6 +57,7 @@
 
 	void area_details::update(int CountryCode,int areaCode){
 		cout<<"Updating "<<CountryCode<<" "<<areaCode<<endl;
+		//new data elements which will be inserted
 		int newAreaCode;
 		string  newAreaName;
 		cout<<"Enter new AreaCode";
@@ -65,8 +68,9 @@
 			if (country.first==CountryCode){
 				        for (auto city : country.second){
 				        	if (city.first==areaCode){
+							//Erasing data to be Updated
 				        		area_code.erase(country.first);
-
+							//Inserting new data element
 				        		area_code[country.first].emplace(newAreaCode,newAreaName);
 				        		cout << country.first << ":" << city.first << " -> " << city.second << endl;
 
@@ -75,7 +79,6 @@
 				        }
 			}
 		}
-		print_all();
 	}
 
 	void area_details::Delete(int CountryCode, int areaCode){
@@ -84,7 +87,8 @@
 					if (country.first==CountryCode){
 						        for (auto city : country.second){
 						        	if (city.first==areaCode){
-						        		del=1;
+						        		//Deleting data and creating flag
+									del=1;
 						        		area_code.erase(country.first);
 						        		cout<<"Deleted "<<country.first<<" "<<city.first;
 						        	}
