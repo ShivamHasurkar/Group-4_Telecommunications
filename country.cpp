@@ -12,6 +12,12 @@ Country::Country()
     this->country = {};
 }
 
+Country* Country::getInstance() {
+      if (!instance)
+	      instance = new Country();
+      return instance;
+}
+
 //parameterized constructor
 Country::Country(map<int, string> country)
 {

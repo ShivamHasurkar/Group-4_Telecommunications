@@ -19,6 +19,9 @@ class area_details{
 	map<int,map<int,string>>::iterator itr;
 	map<int,int>::iterator otr;
 public:
+	static area_details *instance;
+
+	area_details *getInstance();
 
 	bool print_all();
 	bool addCode(int CountryCode, int areaCode, string newAreaName );

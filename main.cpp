@@ -1,11 +1,20 @@
 #include<iostream>
 using namespace std;
 
+#include "country.h"
+#include "ContactDetails.h"
+#include "Customer.h"
+#include "area_details.h"
+#include "countryoperations.h"
+
 ContactDetails *ContactDetails::instance = 0;
+Country *Country::instance = 0;
+area_details *area_details::instance = 0;
 
 int main(){
-    ContactDetails *c= c->getInstance();
-    
+    Country *c= c->getInstance();
+    area_details *a=a->getInstance();
+    ContactDetails *cd=cd->getInstance();
     
     char ch = 'y';
 	int choice = 0;
@@ -53,13 +62,13 @@ int main(){
 			cout<<  (c->addCountry(52))?"Successfully Added!":"Something went wrong. Try again!";
 			break;
 		case 12: 
-			
+			cout<< (c->addCode(52,30))?"Successfully Added!":"Something went wrong. Try again!";
 			break;
 		case 13: 
-			
+			cout<< (c->addPhoneNumber(52,30,10))?"Successfully Added!":"Something went wrong. Try again!";
 			break;
 		case 14: 
-			
+			cout<< (c->addCustomerDetails(52,30,10,"Sahil","Sahil","Sahil"))?"Successfully Added!":"Something went wrong. Try again!";
 			break;
 		case 21: 
 			

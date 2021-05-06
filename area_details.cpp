@@ -6,6 +6,12 @@
  */
 #include"area_details.h"
 
+area_details* area_details::getInstance() {
+      if (!instance)
+      instance = new area_details;
+      return instance;
+   }
+
 	//Looping through Map to print all data elements
 	bool area_details::print_all(){
 		try{
