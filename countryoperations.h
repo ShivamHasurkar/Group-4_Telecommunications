@@ -14,12 +14,19 @@ namespace countryoperations
         set<Country *> countries;
 
     public:
+        //default constructor
         Countryoperations();
+        //parameterized constructor
         Countryoperations(set<Country*>);
+        //adding country
         bool addCountry(int countrycode, string countryname);
+        //displaying all countries
         set<Country*> displayCountries();
+        //total number of countries
         int countryCount();
+        //updating country
         bool updateCountry(int countrycode, int newcode, string countryname);
+        //deleting country from list
         bool deleteCountry(int countrycode);
     };
 } // namespace countryoperations
