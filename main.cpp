@@ -131,12 +131,14 @@ int main(){
 			break;
 		default:
 			cout << "\nInvalid Choice";
-		}
+			}
 		cout << "\nDo you want to perfom any other operation (Y/N): ";
 		cin >> ch;
 		}
 		catch(exception ex){
 			cout <<"Something went wrong";
+		}
 		
+		}catch(exception ex){}
 	}
 }
