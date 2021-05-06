@@ -1,20 +1,23 @@
-#ifndef CustomerDetails
-#define CustomerDetails
+#ifndef ContactDetails_H
+#define ContactDetails_H
 
-#include<string>
-#include<map>
 #include "Customer.h"
+#include<map>
 
 class ContactDetails{
 
 public:
-	map<int countrycode, map<int areacode, map<int phoneNumber,Customer customer> > > contacts;
-
+	typedef std::map<int, Customer> Map3;
+   	typedef std::map<int, Map3> Map2;
+   	typedef std::map<int, Map2> Map1;
+   	
+   	Map1 contacts;
+   	
 	//add case 3
 	bool addPhoneNumber(int countrycode, int areacode, int phoneNumber);
 	
 	//add case 4
-	bool addCustomerDetails(int countrycode, int areacode, int phoneNumber, string name, string address, string pincode);
+	bool addCustomerDetails(int countrycode, int areacode, int phoneNumber, std::string name, std::string address, std::string pincode);
 	
 	//search case 3
 	bool searchPhoneNumber(int countrycode, int areacode, int phoneNumber);
@@ -40,6 +43,6 @@ public:
 	//delete case 4
 	bool deleteCustomerDetails(int countryCode, int AreaCode, int phoneNumber);
 
-}
+};
 
 #endif

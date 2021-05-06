@@ -1,28 +1,29 @@
-#ifndef Customer
-#define Customer
+#ifndef Customer_H
+#define Customer_H
 
+#include<iostream>
 #include<string>
 
 class Customer{
 private:
-	string name;
-	string address;
-	string pincode;
+	std::string name;
+	std::string address;
+	std::string pincode;
 	
 public:
 	Customer();
-	Customer(name);
-	Customer(name,address);
-	Customer(name,address,pincode);
+	Customer(std::string name);
+	Customer(std::string name,std::string address);
+	Customer(std::string name,std::string address,std::string pincode);
 
-	string getName();
-	void setName(string name);
+	std::string getName();
+	void setName(std::string name);
 	
-	string getAddress();
-	void setAddress(string address);
+	std::string getAddress();
+	void setAddress(std::string address);
 	
-	string getPincode();
-	void setPincode(string pincode);
-}
+	std::string getPincode();
+	void setPincode(std::string pincode);
+};
 
 #endif
