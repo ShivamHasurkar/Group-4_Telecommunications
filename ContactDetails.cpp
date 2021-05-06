@@ -11,24 +11,33 @@ ContactDetails* ContactDetails::getInstance() {
 }
 
 void ContactDetails::addCountry(int countrycode){
+	try{
 	Map1 :: iterator it_out;
 	it_out = contacts.find(countrycode);
 	if(it_out==contacts.end()){
 		Map2 map2;
 		contacts.insert(std::pair<int,Map2>(countrycode,map2));
 	}
+	}catch(exception e){
+		cout<<"Something went wring";
+	}
 }
 
 void ContactDetails::deleteCountry(int countrycode){
+	try{
 	Map1 :: iterator it_out;
 	it_out = contacts.find(countrycode);
 	if(it_out!=contacts.end()){
 		contacts.erase(countrycode);
 	}
+	}catch(exception ex){
+		cout<<"Something went wrong";
+	}
 }
 
 
 void ContactDetails::updateCountrycode(int oldcountrycode,int newcountrycode){
+	try{
 	Map1 :: iterator it_out;
 	it_out = contacts.find(oldcountrycode);
 	if(it_out!=contacts.end()){
@@ -40,9 +49,13 @@ void ContactDetails::updateCountrycode(int oldcountrycode,int newcountrycode){
 			contacts.erase(oldcountrycode);
 		}
 	}
+	}catch(exception ex){
+		cout<<"Something went wrong";
+	}
 }
 
 void ContactDetails::addArea(int countrycode,int areacode){
+	try{
 	Map1 :: iterator it_out;
 	it_out = contacts.find(countrycode);
 	if(it_out!=contacts.end()){
@@ -53,9 +66,13 @@ void ContactDetails::addArea(int countrycode,int areacode){
 			(*it_out).second.insert(std::pair<int,Map3>(areacode,m3));
 		}
 	}
+	}catch(exception e){
+		cout<<"Something went wrong";
+	}
 }
 
 void ContactDetails::deleteArea(int countrycode,int areacode){
+	try{
 	Map1 :: iterator it_out;
 	it_out = contacts.find(countrycode);
 	if(it_out!=contacts.end()){
@@ -65,9 +82,13 @@ void ContactDetails::deleteArea(int countrycode,int areacode){
 			(*it_out).second.erase(areacode);
 		}
 	}
+	}catch(exception e){
+		cout<<"Something went wrong";
+	}
 }
 
 void ContactDetails::updateAreacode(int countrycode,int oldareacode,int newareacode){
+	try{
 	Map1 :: iterator it_out;
 	it_out = contacts.find(countrycode);
 	if(it_out!=contacts.end()){
@@ -83,9 +104,13 @@ void ContactDetails::updateAreacode(int countrycode,int oldareacode,int newareac
 			}
 		}
 	}
+	}catch(exception ex){
+		cout<<"Something went wrong";
+	}
 }
 
 bool ContactDetails::addPhoneNumber(int countrycode, int areacode, int phoneNumber){
+	try{
 	Map1 :: iterator it_out;
 	it_out = contacts.find(countrycode);
 	if(it_out!=contacts.end()){
@@ -101,10 +126,14 @@ bool ContactDetails::addPhoneNumber(int countrycode, int areacode, int phoneNumb
 			}
 		}
 	}
+	}catch(exception e){
+		cout<<"Something went wrong";
+	}
 	return false;
 }
 
 bool ContactDetails::addCustomerDetails(int countrycode, int areacode, int phoneNumber, std::string name, std::string address, std::string pincode){
+	try{
 	Map1 :: iterator it_out;
 	it_out = contacts.find(countrycode);
 	if(it_out!=contacts.end()){
@@ -120,10 +149,14 @@ bool ContactDetails::addCustomerDetails(int countrycode, int areacode, int phone
 			}
 		}
 	}
+	}catch(exception ex){
+		cout<<"Something went wrong";
+	}
 	return false;
 }
 
 bool ContactDetails::searchPhoneNumber(int countrycode, int areacode, int phoneNumber){
+	try{
 	Map1 :: iterator it_out;
 	it_out = contacts.find(countrycode);
 	if(it_out!=contacts.end()){
@@ -137,10 +170,14 @@ bool ContactDetails::searchPhoneNumber(int countrycode, int areacode, int phoneN
 			}
 		}
 	}
+	}catch(exception ex){
+		cout<<"Something went wrong";
+	}
 	return false;
 }
 
 Customer* ContactDetails::searchCustomerDetails(int countrycode, int areacode, int phoneNumber){
+	try{
 	Map1 :: iterator it_out;
 	it_out = contacts.find(countrycode);
 	if(it_out!=contacts.end()){
@@ -154,10 +191,14 @@ Customer* ContactDetails::searchCustomerDetails(int countrycode, int areacode, i
 			}
 		}
 	}
+	}catch(exception ex){
+		cout<<"Something went wrong";
+	}
 	return NULL;
 }
 
 unsigned long long int ContactDetails::countTotalPhoneNumbers(){
+	try{
 	unsigned long long int count=0;
 	Map1 :: iterator it_out;
 	for(it_out=contacts.begin();it_out!=contacts.end();it_out++){
@@ -166,10 +207,14 @@ unsigned long long int ContactDetails::countTotalPhoneNumbers(){
 			count+=(*it_mid).second.size();
 		}
 	}
+	}catch(exception e){
+		cout<<"Something went wrong";
+	}
 	return count;
 }
 
 unsigned long long int ContactDetails::countAllPhoneNumbers(int countrycode, int areacode){
+	try{
 	unsigned long long int count=0;
 	Map1 :: iterator it_out;
 	it_out = contacts.find(countrycode);
@@ -180,10 +225,15 @@ unsigned long long int ContactDetails::countAllPhoneNumbers(int countrycode, int
 			count+=(*it_mid).second.size();
 		}
 	}
+	}catch(exception e)
+	{
+		cout<<"Something went wrong";
+	}
 	return count;
 }
 
 bool ContactDetails::updatePhoneNumber(int countrycode, int areacode, int oldPhoneNumber, int newPhoneNumber){
+	try{
 	Map1 :: iterator it_out;
 	it_out = contacts.find(countrycode);
 	if(it_out!=contacts.end()){
@@ -204,10 +254,14 @@ bool ContactDetails::updatePhoneNumber(int countrycode, int areacode, int oldPho
 			}
 		}
 	}
+	}catch(exception e){
+		cout <<"Something went wrong";
+	}
 	return false;
 }
 
 bool ContactDetails::updateCustomerDetails(int countrycode, int areacode, int phoneNumber, std::string name, std::string address, std::string pincode){
+	try{
 	Map1 :: iterator it_out;
 	it_out = contacts.find(countrycode);
 	if(it_out!=contacts.end()){
@@ -223,10 +277,14 @@ bool ContactDetails::updateCustomerDetails(int countrycode, int areacode, int ph
 			}
 		}
 	}
+	}catch(exception ex){
+		cout<<"Something went wrong";
+	}
 	return false;
 }
 
 bool ContactDetails::deletePhoneNumber(int countrycode, int areacode, int phoneNumber){
+	try{
 	Map1 :: iterator it_out;
 	it_out = contacts.find(countrycode);
 	if(it_out!=contacts.end()){
@@ -240,10 +298,14 @@ bool ContactDetails::deletePhoneNumber(int countrycode, int areacode, int phoneN
 			}
 		}
 	}
+	}catch(exception e){
+		cout<<"Something went wrong";
+	}
 	return false;
 }
 
 bool ContactDetails::deleteCustomerDetails(int countrycode, int areacode, int phoneNumber){
+	try{
 	Map1 :: iterator it_out;
 	it_out = contacts.find(countrycode);
 	if(it_out!=contacts.end()){
@@ -259,6 +321,9 @@ bool ContactDetails::deleteCustomerDetails(int countrycode, int areacode, int ph
 				return true;
 			}
 		}
+	}
+	}catch(exception ex){
+		cout<<"Something went wrong";
 	}
 	return false;
 }
