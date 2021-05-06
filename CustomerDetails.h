@@ -8,7 +8,7 @@
 class ContactDetails{
 
 public:
-	map<countrycode, map<areacode, map<string,Customer> > > contacts;
+	map<int countrycode, map<int areacode, map<int phoneNumber,Customer customer> > > contacts;
 
 	//add case 3
 	bool addPhoneNumber(int countrycode, int areacode, int phoneNumber);
