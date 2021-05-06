@@ -3,6 +3,7 @@
 
 #include "Customer.h"
 #include<map>
+#include<list>
 
 class ContactDetails{
 
@@ -21,6 +22,8 @@ public:
    	static ContactDetails *getInstance();
    	
    	ContactDetails();
+   	
+   	std::list<int> printPhoneNumber(int countrycode, int areacode, int phoneNumber);
    	
 	//add case 3
 	bool addPhoneNumber(int countrycode, int areacode, int phoneNumber);

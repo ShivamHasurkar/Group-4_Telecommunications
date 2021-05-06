@@ -38,16 +38,16 @@ area_details* area_details::getInstance() {
 
 		try{
 			for(auto country : area_code){
-				if (Country==country.first){
+				if (CountryCode==country.first){
 					area_code[CountryCode].emplace(areaCode, newAreaName);
-					return true
+					return true;
+				}
 			}
-			}
-			}
+		}
 		catch(exception &e){
 			cout<<"Exception Caught: "<< e.what()<<endl;
 			return false;
-			}
+		}
 	}
 
 
@@ -151,6 +151,8 @@ area_details* area_details::getInstance() {
 						}
 					}
 					return true;
+		}
+		}
 		}
 		catch(exception &e){
 			cout<<"Exception Caught: "<< e.what()<<endl;
