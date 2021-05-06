@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>120</y>
+      <w>296</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>CountryOperations
+--
+- set&lt;Country *&gt; countries;
+--
++ Countryoperations();
++ Countryoperations(set&lt;Country*&gt;);
++ bool addCountry(int countrycode, string countryname);
++ set&lt;Country*&gt; displayCountries();
++ int countryCount();
++ bool updateCountry(int countrycode, int newcode, string countryname);
++ bool deleteCountry(int countrycode);
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>728</x>
+      <y>496</y>
+      <w>232</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>Area
+--
+- int code
+- string name
+--
++ Area();
++ Area(int, string, set&lt;Area *&gt;);
++ void setCode(int code);
++ int getCode();
++ void setName(string name);
++ string getName();
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>864</x>
+      <y>320</y>
+      <w>192</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>ContactDetails
+--
+- Country country
+- long localnumber
+--
++ ContactDetails()
++ ContactDetails(Country,long)
++ void setNumber(string)
++ string getNumber()
++ void setCountry(Country c)
++ Country getCountry()
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>128</x>
+      <y>264</y>
+      <w>360</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>Customer
+--
+- int id;
+- String name
+- ContactDetails contact
+--
++ Customer();
++ Customer(int, string, set&lt;Area *&gt;);
++ void setId(int);
++ int getId();
++ void setName(string name);
++ string getName();
++ void setContactDetais(ContactDetails *details);
++ set&lt;ContactDetails *&gt; getContactDetails();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>304</x>
+      <y>200</y>
+      <w>24</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>816</x>
+      <y>288</y>
+      <w>24</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;260.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>696</x>
+      <y>104</y>
+      <w>256</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>Country
+--
+- int isdcode;
+- string name;
+- set&lt;Area *&gt; areas;
+--
++ Country();
++ Country(int, string, set&lt;Area *&gt;);
++ void setCode(int code);
++ int getCode();
++ void setName(string name);
++ string getName();
++ void setArea(Area *area);
++ set&lt;Area *&gt; getAreas();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>112</y>
+      <w>176</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>TelecommunicationSystem
+--
+map&lt;int, ContactDetails&gt;
+
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>328</x>
+      <y>496</y>
+      <w>360</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Areaoperations
+--
+set&lt;Area *&gt; areas
+--
++ Areaoperations();
++ Areaoperations(set&lt;Country*&gt;);
++ bool addArea(int countrycode, int areacode, string areaname);
++ set&lt;Area*&gt; displayAreas();
++ int areaCount();
++ bool updateArea(int countrycode, int newcode, string newareaname);
++ bool deleteArea(int areacode);
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>544</y>
+      <w>64</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;20.0;60.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>648</x>
+      <y>192</y>
+      <w>64</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;20.0;60.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>24</x>
+      <y>16</y>
+      <w>160</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>FileOperations
+--
+
+--
+readFromFile()
+writeOnFile()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>496</x>
+      <y>320</y>
+      <w>272</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>ContactOperations
+--
+set&lt;ContactDetails&gt; contactDetails
+--
++ Contactoperations();
++ Contactoperations(set&lt;contactDetails*&gt;);
++ bool addContactDetails(int,int ,string,string);
++ set&lt;ContactDetails*&gt; displayContactDetail(int ,int);
++ set&lt;ContactDetails*&gt; displayContactDetails();
++ int ContactDetailsCount();
++ bool updateContactDetail(int,int,long,long);
++ bool deleteContactDetail(int,int);
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>344</y>
+      <w>120</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>944</x>
+      <y>216</y>
+      <w>88</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>90.0;130.0;90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>336</x>
+      <y>40</y>
+      <w>712</w>
+      <h>296</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;280.0;10.0;10.0;870.0;10.0;870.0;350.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>16</x>
+      <y>488</y>
+      <w>304</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>CustomerOperations
+--
+set&lt;ContactDetails&gt; Customers
+--
++ Customeroperations();
++ Customeroperations(set&lt;Customer*&gt;);
++ bool addCustomer(int,int ,ContactDetails
++ set&lt;ContactDetails*&gt; displayContactDetail(int ,int,long);
++ set&lt;Customer*&gt; displayContactDetails();
++ int CustomerCount();
++ bool updateCustomer(int,int,long);
++ bool deleteContactCustomer(int,int,string,long);
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>56</x>
+      <y>320</y>
+      <w>88</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;210.0;10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+</diagram>
