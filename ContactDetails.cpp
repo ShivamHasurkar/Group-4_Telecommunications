@@ -18,8 +18,8 @@ void ContactDetails::addCountry(int countrycode){
 		Map2 map2;
 		contacts.insert(std::pair<int,Map2>(countrycode,map2));
 	}
-	}catch(exception e){
-		cout<<"Something went wring";
+	}catch(exception &e){
+		cout<<"Exception Caught: "<< e.what()<<endl;
 	}
 }
 
@@ -30,8 +30,8 @@ void ContactDetails::deleteCountry(int countrycode){
 	if(it_out!=contacts.end()){
 		contacts.erase(countrycode);
 	}
-	}catch(exception ex){
-		cout<<"Something went wrong";
+	}catch(exception e){
+		cout<<"Exception Caught: "<< e.what()<<endl;
 	}
 }
 
@@ -49,8 +49,8 @@ void ContactDetails::updateCountrycode(int oldcountrycode,int newcountrycode){
 			contacts.erase(oldcountrycode);
 		}
 	}
-	}catch(exception ex){
-		cout<<"Something went wrong";
+	}catch(exception e){
+		cout<<"Exception Caught: "<< e.what()<<endl;
 	}
 }
 
@@ -67,7 +67,7 @@ void ContactDetails::addArea(int countrycode,int areacode){
 		}
 	}
 	}catch(exception e){
-		cout<<"Something went wrong";
+		cout<<"Exception Caught: "<< e.what()<<endl;
 	}
 }
 
@@ -83,7 +83,7 @@ void ContactDetails::deleteArea(int countrycode,int areacode){
 		}
 	}
 	}catch(exception e){
-		cout<<"Something went wrong";
+		cout<<"Exception Caught: "<< e.what()<<endl;
 	}
 }
 
@@ -104,8 +104,8 @@ void ContactDetails::updateAreacode(int countrycode,int oldareacode,int newareac
 			}
 		}
 	}
-	}catch(exception ex){
-		cout<<"Something went wrong";
+	}catch(exception e){
+		cout<<"Exception Caught: "<< e.what()<<endl;
 	}
 }
 
@@ -127,7 +127,7 @@ bool ContactDetails::addPhoneNumber(int countrycode, int areacode, int phoneNumb
 		}
 	}
 	}catch(exception e){
-		cout<<"Something went wrong";
+		cout<<"Exception Caught: "<< e.what()<<endl;
 	}
 	return false;
 }
@@ -149,8 +149,8 @@ bool ContactDetails::addCustomerDetails(int countrycode, int areacode, int phone
 			}
 		}
 	}
-	}catch(exception ex){
-		cout<<"Something went wrong";
+	}catch(exception e){
+		cout<<"Exception Caught: "<< e.what()<<endl;
 	}
 	return false;
 }
@@ -170,8 +170,8 @@ bool ContactDetails::searchPhoneNumber(int countrycode, int areacode, int phoneN
 			}
 		}
 	}
-	}catch(exception ex){
-		cout<<"Something went wrong";
+	}catch(exception e){
+		cout<<"Exception Caught: "<< e.what()<<endl;
 	}
 	return false;
 }
@@ -191,8 +191,8 @@ Customer* ContactDetails::searchCustomerDetails(int countrycode, int areacode, i
 			}
 		}
 	}
-	}catch(exception ex){
-		cout<<"Something went wrong";
+	}catch(exception e){
+		cout<<"Exception Caught: "<< e.what()<<endl;
 	}
 	return NULL;
 }
@@ -208,7 +208,7 @@ unsigned long long int ContactDetails::countTotalPhoneNumbers(){
 		}
 	}
 	}catch(exception e){
-		cout<<"Something went wrong";
+		cout<<"Exception Caught: "<< e.what()<<endl;
 	}
 	return count;
 }
@@ -227,7 +227,7 @@ unsigned long long int ContactDetails::countAllPhoneNumbers(int countrycode, int
 	}
 	}catch(exception e)
 	{
-		cout<<"Something went wrong";
+		cout<<"Exception Caught: "<< e.what()<<endl;
 	}
 	return count;
 }
@@ -255,7 +255,7 @@ bool ContactDetails::updatePhoneNumber(int countrycode, int areacode, int oldPho
 		}
 	}
 	}catch(exception e){
-		cout <<"Something went wrong";
+		cout<<"Exception Caught: "<< e.what()<<endl;
 	}
 	return false;
 }
@@ -277,8 +277,8 @@ bool ContactDetails::updateCustomerDetails(int countrycode, int areacode, int ph
 			}
 		}
 	}
-	}catch(exception ex){
-		cout<<"Something went wrong";
+	}catch(exception e){
+		cout<<"Exception Caught: "<< e.what()<<endl;
 	}
 	return false;
 }
@@ -299,7 +299,7 @@ bool ContactDetails::deletePhoneNumber(int countrycode, int areacode, int phoneN
 		}
 	}
 	}catch(exception e){
-		cout<<"Something went wrong";
+		cout<<"Exception Caught: "<< e.what()<<endl;
 	}
 	return false;
 }
@@ -322,8 +322,8 @@ bool ContactDetails::deleteCustomerDetails(int countrycode, int areacode, int ph
 			}
 		}
 	}
-	}catch(exception ex){
-		cout<<"Something went wrong";
+	}catch(exception e){
+		cout<<"Exception Caught: "<< e.what()<<endl;
 	}
 	return false;
 }
