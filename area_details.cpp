@@ -38,12 +38,17 @@ area_details* area_details::getInstance() {
 	bool area_details::addCode(int CountryCode, int areaCode, string newAreaName ){
 
 		try{
-			for(auto country : area_code){
-				if (CountryCode==country.first){
-					area_code[CountryCode].emplace(areaCode, newAreaName);
+			map<int,map<int,string>>::iterator itr;
+			itr=area_code.find(CountryCode);
+			if(itr!=area_code.end()){
+				map<int,string>::iterator iti;
+				iti=(*itr).second.find(areaCode);
+				if(iti==(*itr).second.end()){
+					(*itr).second.insert(std::pair<int,std::string>(areaCode,newAreaName));
 					return true;
 				}
 			}
+			return false;
 		}
 		catch(exception &e){
 			cout<<"Exception Caught: "<< e.what()<<endl;
