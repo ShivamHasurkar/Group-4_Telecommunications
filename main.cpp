@@ -17,14 +17,14 @@ int countDigit(long long n){
 
 int validate(int num, int length){
     int len = countDigit(num);
-    if(len>0 && len<=length){return 1;}
+    if(len>0 && len<=length){return num;}
     else {return 0;}
 }
 
 
 int validate(int num){
     int len = countDigit(num);
-    if(len==7){return 1;}
+    if(len==7){return num;}
     else {return 0;}
 }
 
@@ -156,6 +156,7 @@ int main(){
 		    AreaCode = input_areacode("Enter Area Code in which you want to search PhoneNumber : ");
 			PhoneNumber = input_phonenumber("Enter PhoneNumber in which you want to search PhoneNumber : ");
 			res = cd->searchPhoneNumber(CountryCode,AreaCode,PhoneNumber)?"Exists":"Not Exists";
+			cout<<res<<endl;
 			break;
 		case 24: 
 		    CountryCode = input_countrycode("Enter Country Code in which you want to search Customer Details : ");

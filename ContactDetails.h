@@ -55,6 +55,8 @@ public:
 	//delete case 4
 	bool deleteCustomerDetails(int countrycode, int areacode, int phoneNumber);
 	
+	void printMaps();
+	
 	
    	
 	void addArea(int countrycode,int areacode);

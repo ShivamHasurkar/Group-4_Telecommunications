@@ -35,7 +35,6 @@ void ContactDetails::deleteCountry(int countrycode){
 	}
 }
 
-
 void ContactDetails::updateCountrycode(int oldcountrycode,int newcountrycode){
 	try{
 	Map1 :: iterator it_out;
@@ -109,6 +108,26 @@ void ContactDetails::updateAreacode(int countrycode,int oldareacode,int newareac
 	}
 }
 
+void ContactDetails::printMaps(){
+	try{
+	Map1 :: iterator it_out;
+	for(it_out=contacts.begin();it_out!=contacts.end();it_out++){
+		std::cout<<(*it_out).first<<std::endl;
+		Map2:: iterator it_mid;
+		for(it_mid=(*it_out).second.begin();it_mid!=(*it_out).second.end();it_mid++){
+		std::cout<<(*it_out).first<<":"<<(*it_mid).first<<std::endl;
+			Map3:: iterator it_in;
+			for(it_in=(*it_mid).second.begin();it_in!=(*it_mid).second.end();it_in++){
+				std::cout<<(*it_out).first<<":"<<(*it_mid).first<<":"<<(*it_in).first<<std::endl;
+			}
+		}
+	}
+	}
+	catch(std::exception e){
+		std::cout<<"Exception Caught: "<< e.what()<<std::endl;
+	}
+}
+
 bool ContactDetails::addPhoneNumber(int countrycode, int areacode, int phoneNumber){
 	try{
 	Map1 :: iterator it_out;
@@ -173,6 +192,7 @@ bool ContactDetails::searchPhoneNumber(int countrycode, int areacode, int phoneN
 	}catch(std::exception e){
 		std::cout<<"Exception Caught: "<< e.what()<<std::endl;
 	}
+	std::cout<<false<<std::endl;
 	return false;
 }
 
