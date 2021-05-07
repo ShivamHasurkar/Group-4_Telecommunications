@@ -30,7 +30,7 @@ public:
 	bool print_all();
 	bool addCode(int CountryCode, int areaCode, string newAreaName );
 
-	list<int> Search(int CountryCode);
+	bool Search(int CountryCode,int areaCode);
 
 	int Count();
 	int Count(int CountryCode);
@@ -38,6 +38,10 @@ public:
 	bool update(int CountryCode,int areaCode);
 
 	bool Delete(int CountryCode, int areaCode);
+
+	bool areaCodeExist(int CountryCode, int areaCode);
+
+	bool countryCodeExist(int CountryCode);
 
 };
 
