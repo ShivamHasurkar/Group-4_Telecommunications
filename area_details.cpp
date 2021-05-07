@@ -4,6 +4,7 @@
  *  Created on: 06-May-2021
  *      Author: saurabh
  */
+ 
 #include"area_details.h"
 
 area_details* area_details::getInstance() {

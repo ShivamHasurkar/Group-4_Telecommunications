@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+#include<cmath>
 #include "country.h"
 #include "ContactDetails.h"
 #include "Customer.h"
@@ -16,7 +17,14 @@ int countDigit(long long n){
 
 int validate(int num, int length){
     int len = countDigit(num);
-    if(len==length){return 1;}
+    if(len>0 && len<=length){return 1;}
+    else {return 0;}
+}
+
+
+int validate(int num){
+    int len = countDigit(num);
+    if(len==7){return 1;}
     else {return 0;}
 }
 
@@ -96,8 +104,8 @@ int main(){
 		
 		cout << "\nEnter your Choice: ";
 		cin >> choice;
-		string res, newCountryName, CountryName, newAreaName, AreaName, CustomerName, CustomerAddress;
-		int count, newCountryCode, CountryCode, newAreaCode, AreaCode, newPhoneNumber, PhoneNumber, CustomerPincode;
+		string res, newCountryName, CountryName, newAreaName, AreaName, CustomerName, CustomerAddress, CustomerPincode;
+		int count, newCountryCode, CountryCode, newAreaCode, AreaCode, newPhoneNumber, PhoneNumber;
 		
 		switch (choice) {
 		case 11: 
@@ -145,7 +153,7 @@ int main(){
 		    CountryCode = input_countrycode("Enter Country Code in which you want to search PhoneNumber : ");
 		    AreaCode = input_areacode("Enter Area Code in which you want to search PhoneNumber : ");
 			PhoneNumber = input_phonenumber("Enter PhoneNumber in which you want to search PhoneNumber : ");
-			res = cd->searchPhoneNumber()?"Exists":"Not Exists";
+			res = cd->searchPhoneNumber(CountryCode,AreaCode,PhoneNumber)?"Exists":"Not Exists";
 			break;
 		case 24: 
 		    CountryCode = input_countrycode("Enter Country Code in which you want to search Customer Details : ");
