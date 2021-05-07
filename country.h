@@ -29,7 +29,7 @@ using namespace std;
         bool setCountry(int code, string name);
 
         //getting country with code
-        string getCountryName(int code);
+        bool searchCountry(int code);
 
         //get all countries
         void printAllCountries();
