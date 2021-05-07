@@ -4,7 +4,6 @@
  *  Created on: 06-May-2021
  *      Author: saurabh
  */
- 
 #include"area_details.h"
 
 area_details* area_details::getInstance() {
@@ -38,18 +37,12 @@ area_details* area_details::getInstance() {
 	bool area_details::addCode(int CountryCode, int areaCode, string newAreaName ){
 
 		try{
-			map<int,map<int,string>>::iterator itr;
-			itr=area_code.find(CountryCode);
-			if(itr!=area_code.end()){
-				map<int,string>::iterator iti;
-				iti=(*itr).second.find(areaCode);
-				if(iti==(*itr).second.end()){
-					(*itr).second.insert(std::pair<int,std::string>(areaCode,newAreaName));
-					contactdetails->addArea(CountryCode,areaCode);
-					return true;
-				}
+			if (countryCodeExist(CountryCode)){
+				area_code[CountryCode].emplace(areaCode, newAreaName);
+				return true;
+			}else
+			{  return false;
 			}
-			return false;
 		}
 		catch(exception &e){
 			cout<<"Exception Caught: "<< e.what()<<endl;
@@ -61,19 +54,21 @@ area_details* area_details::getInstance() {
 
 
 	//Creating a list and pushing into list l
-	list<int> area_details::Search(int CountryCode){
+	bool area_details::Search(int CountryCode,int areaCode){
 
 		try{
 
-			list<int> l;
-
 			for (auto country : area_code) {
-		        for (auto city : country.second){
+				if (country.first==CountryCode){
+					for (auto city : country.second){
+						if (city.first==areaCode)
+							return true;
+					}
+				}
 
-		            l.push_back(city.first);
-		        	}
-		 	 	 }
-		 	return l;
+		 	 }
+			return false;
+
 
 			}
 
@@ -151,8 +146,6 @@ area_details* area_details::getInstance() {
 
 											area_code[country.first].emplace(newAreaCode,newAreaName);
 											cout << country.first << ":" << city.first << " -> " << city.second << endl;
-											contactdetails->updateAreacode(CountryCode, areaCode,newAreaCode);
-    
 											break;
 										}
 
@@ -180,10 +173,8 @@ area_details* area_details::getInstance() {
 									        for (auto city : country.second){
 									        	if (city.first==areaCode){
 									        		del=1;
-									        		cout<<"Deleted "<<country.first<<" "<<city.first;
 									        		area_code.erase(country.first);
-									        		contactdetails->deleteArea(CountryCode,areaCode);
-            
+									        		cout<<"Deleted "<<country.first<<" "<<city.first;
 									        	}
 
 									        }
@@ -198,5 +189,21 @@ area_details* area_details::getInstance() {
 			cout<<"Exception Caught: "<< e.what()<<endl;
 			return false;
 		}
+	}
+
+
+
+	bool area_details::areaCodeExist(int CountryCode, int areaCode){
+			if (countryCodeExist(CountryCode)){
+			        return Search(CountryCode,areaCode);
+			}
+			return false;
+
+		}
+
+
+
+	bool area_details::countryCodeExist(int CountryCode){
+		return area_code.count(CountryCode);
 	}
 
