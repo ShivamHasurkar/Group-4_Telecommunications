@@ -12,6 +12,7 @@
 #include<string>
 #include<map>
 #include<list>
+#include "ContactDetails.h"
 using namespace std;
 class area_details{
 
@@ -22,6 +23,9 @@ public:
 	static area_details *instance;
 
 	area_details *getInstance();
+	
+	ContactDetails *contactdetails=contactdetails->getInstance();
+
 
 	bool print_all();
 	bool addCode(int CountryCode, int areaCode, string newAreaName );

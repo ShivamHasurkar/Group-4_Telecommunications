@@ -45,6 +45,7 @@ area_details* area_details::getInstance() {
 				iti=(*itr).second.find(areaCode);
 				if(iti==(*itr).second.end()){
 					(*itr).second.insert(std::pair<int,std::string>(areaCode,newAreaName));
+					contactdetails->addArea(CountryCode,areaCode);
 					return true;
 				}
 			}
@@ -150,6 +151,8 @@ area_details* area_details::getInstance() {
 
 											area_code[country.first].emplace(newAreaCode,newAreaName);
 											cout << country.first << ":" << city.first << " -> " << city.second << endl;
+											contactdetails->updateAreacode(CountryCode, areaCode,newAreaCode);
+    
 											break;
 										}
 
@@ -177,8 +180,10 @@ area_details* area_details::getInstance() {
 									        for (auto city : country.second){
 									        	if (city.first==areaCode){
 									        		del=1;
-									        		area_code.erase(country.first);
 									        		cout<<"Deleted "<<country.first<<" "<<city.first;
+									        		area_code.erase(country.first);
+									        		contactdetails->deleteArea(CountryCode,areaCode);
+            
 									        	}
 
 									        }
