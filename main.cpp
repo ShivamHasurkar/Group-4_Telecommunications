@@ -55,7 +55,7 @@ int input_phonenumber(string str){
     do{
         cout<<str;
         cin>>i;
-        i=validate(i,7);
+        i=validate(i);
         if(i==0){cout<<"Error. Try Again. Enter 7 digit number";}
     }while(i==0);
     return i;
@@ -144,7 +144,9 @@ int main(){
 			cout<<res<<endl;
 			break;
 		case 21: 
-			// no fucntion Exist
+			CountryCode = input_countrycode("Enter Country Code to Search : ");
+		   	 res = (c->searchCountry(CountryCode))?"Exists":"Not Exists";
+		   	 cout<<res<<endl;
 			break;
 		case 22: 
 			// no fucntion Exist
