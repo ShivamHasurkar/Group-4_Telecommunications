@@ -30,7 +30,7 @@ public:
 	bool print_all();
 	bool addCode(int CountryCode, int areaCode, string newAreaName );
 
-	list<int> Search(int CountryCode);
+	bool Search(int CountryCode,int areaCode);
 
 	int Count();
 	int Count(int CountryCode);
