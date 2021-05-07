@@ -31,11 +31,14 @@ bool Country::setCountry(int code, string name)
     return true;
 }
 
-//getter for countryname
-string Country::getCountryName(int code)
+//search for country
+bool Country::searchCountry(int code)
 {
-    auto itr = this->country.find(code);
-    return (*itr).second;
+	if((this->country).find(code) != (this->country).end())
+		return true;
+	return false;
+    //auto itr = this->country.find(code);
+    //return (*itr).second;
 }
 
 //getting all countries
