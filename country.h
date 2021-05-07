@@ -1,6 +1,7 @@
 #ifndef COUNTRY_H
 #define COUNTRY_H
 #include "ContactDetails.h"
+#include "area_details.h"
 #include <map>
 #include <string>
 using namespace std;
@@ -14,6 +15,7 @@ using namespace std;
     
     
         ContactDetails *contactdetails=contactdetails->getInstance();
+        area_details *areadetails=areadetails->getInstance();
 
         //default construcor
         Country();

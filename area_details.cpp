@@ -12,6 +12,50 @@ area_details* area_details::getInstance() {
       instance = new area_details;
       return instance;
    }
+   
+void area_details::addCountry(int countrycode){
+	try{
+	map<int,map<int,string>> :: iterator it_out;
+	it_out = area_code.find(countrycode);
+	if(it_out==area_code.end()){
+		map<int,string> map2;
+		area_code.insert(std::pair<int,map<int,string>>(countrycode,map2));
+	}
+	}catch(std::exception &e){
+		std::cout<<"Exception Caught: "<< e.what()<<std::endl;
+	}
+}
+
+void area_details::deleteCountry(int countrycode){
+	try{
+	map<int,map<int,string>> :: iterator it_out;
+	it_out = area_code.find(countrycode);
+	if(it_out!=area_code.end()){
+		area_code.erase(countrycode);
+	}
+	}catch(std::exception e){
+		std::cout<<"Exception Caught: "<< e.what()<<std::endl;
+	}
+}
+
+
+void area_details::updateCountrycode(int oldcountrycode,int newcountrycode){
+	try{
+	map<int,map<int,string>> :: iterator it_out;
+	it_out = area_code.find(oldcountrycode);
+	if(it_out!=area_code.end()){
+		map<int,map<int,string>> :: iterator it_mid;
+		it_mid = area_code.find(newcountrycode);
+		if(it_mid==area_code.end()){
+			map<int,string> m2=(*it_out).second;
+			area_code.insert(std::pair<int,map<int,string>>(newcountrycode,m2));
+			area_code.erase(oldcountrycode);
+		}
+	}
+	}catch(std::exception e){
+		std::cout<<"Exception Caught: "<< e.what()<<std::endl;
+	}
+}
 
 	//Looping through Map to print all data elements
 	bool area_details::print_all(){

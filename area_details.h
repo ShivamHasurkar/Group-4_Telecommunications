@@ -37,6 +37,11 @@ public:
 
 	bool update(int CountryCode,int areaCode);
 
+	void addCountry(int countrycode);
+
+void deleteCountry(int countrycode);
+
+void updateCountrycode(int oldcountrycode,int newcountrycode);
 	bool Delete(int CountryCode, int areaCode);
 
 };

@@ -28,6 +28,7 @@ bool Country::setCountry(int code, string name)
 {
     this->country.insert({code, name});
     contactdetails->addCountry(code);
+    areadetails->addCountry(code);
     return true;
 }
 
@@ -73,6 +74,7 @@ bool Country::updateCountry(int oldcode, int newcode, string name)
         return false;
     }
     contactdetails->updateCountrycode(oldcode,newcode);
+    areadetails->updateCountrycode(oldcode,newcode);
     return true;
 }
 
@@ -86,6 +88,7 @@ bool Country ::deleteCountry(int code)
         if (result)
         {
         	contactdetails->deleteCountry(code);
+        	areadetails->deleteCountry(code);
             return true;
           }
     }
