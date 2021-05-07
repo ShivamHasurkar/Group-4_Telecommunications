@@ -105,27 +105,31 @@ void area_details::updateCountrycode(int oldcountrycode,int newcountrycode){
 
 
 	//Creating a list and pushing into list l
-	list<int> area_details::Search(int CountryCode){
+	bool area_details::Search(int CountryCode,int areaCode){
 
 		try{
 
-			list<int> l;
-
 			for (auto country : area_code) {
-		        for (auto city : country.second){
+				if (country.first==CountryCode){
+					for (auto city : country.second){
+						if (city.first==areaCode)
+							return true;
+					}
+				}
 
-		            l.push_back(city.first);
-		        	}
-		 	 	 }
-		 	return l;
+		 	 	}
+			return false;
+
 
 			}
 
 		catch(exception &e){
 			cout<<"Exception Caught: "<< e.what()<<endl;
-			return {};
+			return false;
 			}
 	}
+
+
 
 
 
