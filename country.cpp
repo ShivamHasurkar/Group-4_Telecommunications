@@ -64,18 +64,23 @@ bool Country::updateCountry(int oldcode, int newcode, string name)
     {
 
         auto itr = this->country.find(oldcode);
-        
+	    
+        if(itr != (this->country).end()){
         (this->country).erase(itr->first);
         (this->country).insert({newcode, name});
+	contactdetails->updateCountrycode(oldcode,newcode);
+        areadetails->updateCountrycode(oldcode,newcode);
+	return true;
+	}
+	
 							        		
     }
     catch (exception exception)
     {
         return false;
     }
-    contactdetails->updateCountrycode(oldcode,newcode);
-    areadetails->updateCountrycode(oldcode,newcode);
-    return true;
+   return false;
+  	
 }
 
 //deleting country
