@@ -34,7 +34,7 @@ int input_countrycode(string str){
         cout<<str;
         cin>>i;
         i=validate(i,3);
-        if(i==0){cout<<"Error. Try Again. Enter max 3 digit number";}
+        if(i==0){cout<<"\nError. Try Again. Enter max 3 digit number. ";}
     }while(i==0);
     return i;
 }
@@ -45,7 +45,7 @@ int input_areacode(string str){
         cout<<str;
         cin>>i;
         i=validate(i,4);
-        if(i==0){cout<<"Error. Try Again. Enter max 4 digit number";}
+        if(i==0){cout<<"\nError. Try Again. Enter max 4 digit number. ";}
     }while(i==0);
     return i;
 }
@@ -56,7 +56,7 @@ int input_phonenumber(string str){
         cout<<str;
         cin>>i;
         i=validate(i);
-        if(i==0){cout<<"Error. Try Again. Enter 7 digit number";}
+        if(i==0){cout<<"\nError. Try Again. Enter 7 digit number. ";}
     }while(i==0);
     return i;
 }
@@ -78,7 +78,7 @@ int main(){
 		cout << "\n\t14. New Customer Details";
 
 		cout << "\n___SEARCH___";
-        cout << "\n\t21. Search Country";
+        	cout << "\n\t21. Search Country";
 		cout << "\n\t22. Search Area in a Country";
 		cout << "\n\t23. Search Number in a specific Area";
 		cout << "\n\t24. Search Specific Customer Details";
@@ -149,12 +149,15 @@ int main(){
 		   	 cout<<res<<endl;
 			break;
 		case 22: 
-			// no fucntion Exist
+			CountryCode = input_countrycode("Enter Country Code in which you want to search Area : ");
+			AreaCode = input_areacode("Enter Area Code to Search : ");
+		   	 res = (c->search(CountryCode, AreaCode))?"Exists":"Not Exists";
+		   	 cout<<res<<endl;
 			break;
 		case 23: 
 		    CountryCode = input_countrycode("Enter Country Code in which you want to search PhoneNumber : ");
 		    AreaCode = input_areacode("Enter Area Code in which you want to search PhoneNumber : ");
-			PhoneNumber = input_phonenumber("Enter PhoneNumber in which you want to search PhoneNumber : ");
+			PhoneNumber = input_phonenumber("Enter PhoneNumber to search : ");
 			res = cd->searchPhoneNumber(CountryCode,AreaCode,PhoneNumber)?"Exists":"Not Exists";
 			cout<<res<<endl;
 			break;
@@ -237,7 +240,7 @@ int main(){
 			cout<<res<<endl;
 			break;
 		case 53: 
-			CountryCode = input_countrycode("Enter Country Code in which you want to PhoneNumber : ");
+			CountryCode = input_countrycode("Enter Country Code in which you want to delete PhoneNumber : ");
 			AreaCode = input_areacode("Enter Area Code in which you want to delete PhoneNumber : ");
 			PhoneNumber = input_phonenumber("Enter PhoneNumber you want to delete : ");
 			res = (cd->deletePhoneNumber(CountryCode, AreaCode, PhoneNumber))?"Successfully Deleted": "Something went wrong. Try again!";
