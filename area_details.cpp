@@ -72,9 +72,6 @@ void area_details::updateCountrycode(int oldcountrycode,int newcountrycode){
 			cout<<"Exception Caught: "<< e.what()<<endl;
 			return false;
 		}
-
-
-
 	}
 
 
@@ -201,13 +198,14 @@ void area_details::updateCountrycode(int oldcountrycode,int newcountrycode){
 											cout << country.first << ":" << city.first << " -> " << city.second << endl;
 											contactdetails->updateAreacode(CountryCode, areaCode,newAreaCode);
     
+					return true;
 											break;
 										}
 
 									}
 						}
 					}
-					return true;
+					return false;
 		}
 		}
 		}

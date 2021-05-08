@@ -256,6 +256,7 @@ int main(){
 		default:
 			cout << "\nInvalid Choice";
 		}
+		a->print_all();
 		cout << "\nDo you want to perfom any other operation (Y/N): ";
 		cin >> ch;
 	}
